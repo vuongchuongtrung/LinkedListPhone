@@ -48,13 +48,6 @@ List& List::operator=(const List& l)
 	return *this;
 }
 
-void List::insertAtHead(int id, string make)
-{
-	Node *newNode = new Node(id, make);
-	newNode->next = head;
-	head = newNode;
-}
-
 void List::deleteMostRecent()
 {
 	if (!head) // (head == NULL)
@@ -93,6 +86,27 @@ ostream& operator<<(ostream& os, const List& l)
 	return os;
 }
 
+void List::insertAtHead(int id, string make)
+{
+	Node *newNode = new Node(id, make);
+	newNode->next = head;
+	head = newNode;
+}
+
+void List::insertAtRear(int id, string make)
+{
+	Node *newNode = new Node(id, make);
+	Node *current = head;
+	Node *previous = NULL;
+	while (current) // (current != NULL) ==> keep loop to the end
+	{
+		previous = current;
+		current = current->next; // make progress
+	}
+	previous->next = newNode;
+	newNode->next = current;
+}
+
 void List::insert(int id, string make, int position)
 {
 	Node *newNode = new Node(id, make);
@@ -103,22 +117,61 @@ void List::insert(int id, string make, int position)
 		head = newNode;
 	}
 	else
-	{
-		Node *current = head;
+	{		 
 		Node *previous = NULL;
-		for (int i = 0; i < position && current != NULL; current = current->next, i++)
+		// initialise 2 lines below
+		Node *current = head;
+		int i = 0;
+		while (i < position && current != NULL) // guards
 		{
-			previous = current;			
+			previous = current;
+			// make progress 2 line below
+			current = current->next;
+			i++; 
 		}
 
-		if (current == NULL) // end of linked list ==> insert at rear
+		/* You can check either:
+		 * if (current == NULL)
+		 * if (i < position)
+		 */
+		if (i < position) // end of linked list ==> insert at rear
 		{
 			previous->next = newNode;
 		}
 		else // insert in the middle of linked list
-		{			
-			previous->next = newNode;	
+		{
+			previous->next = newNode;
 			newNode->next = current;
 		}
 	}
 }
+
+//void List::insert(int id, string make, int position)
+//{
+//	Node *newNode = new Node(id, make);
+//	if (position <= 0) // insert at head
+//	{
+//		// could also call insertAtHead() to do the job
+//		newNode->next = head;
+//		head = newNode;
+//	}
+//	else
+//	{
+//		Node *current = head;
+//		Node *previous = NULL;
+//		for (int i = 0; i < position && current != NULL; current = current->next, i++)
+//		{
+//			previous = current;			
+//		}
+//
+//		if (current == NULL) // end of linked list ==> insert at rear
+//		{
+//			previous->next = newNode;
+//		}
+//		else // insert in the middle of linked list
+//		{			
+//			previous->next = newNode;	
+//			newNode->next = current;
+//		}
+//	}
+//}
