@@ -13,8 +13,8 @@ int main()
 	l1.insertAtRear(66, "Lenovo");
 	//cout << l1;
 
-	//l1.deleteMostRecent();
-	//l1.deleteMostRecent();
+	//l1.deleteAtHead();
+	//l1.deleteAtHead();
 	//cout << l1;
 
 	//List l2 = l1;

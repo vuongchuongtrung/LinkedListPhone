@@ -14,7 +14,7 @@ public:
 	~List();
 	
 	List& operator=(const List& l);
-	void deleteMostRecent(); // delete at head
+	void deleteAtHead(); // delete at head
 	void deletePhone(int id);
 	
 	void insertAtHead(int id, string make); // insert at head

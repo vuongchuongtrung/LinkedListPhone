@@ -15,7 +15,7 @@ List::~List()
 {
 	while (head) // (head != NULL)
 	{
-		deleteMostRecent();
+		deleteAtHead();
 	}
 }
 
@@ -27,7 +27,7 @@ List& List::operator=(const List& l)
 		{
 			while (head) // (head != NULL)
 			{
-				deleteMostRecent();
+				deleteAtHead();
 			}
 		}
 
@@ -48,7 +48,7 @@ List& List::operator=(const List& l)
 	return *this;
 }
 
-void List::deleteMostRecent()
+void List::deleteAtHead()
 {
 	if (!head) // (head == NULL)
 	{
@@ -76,7 +76,7 @@ void List::deletePhone(int id)
 	}
 	else if (head->p.id == id) // delete head ==> deleteMostRecent()
 	{
-		deleteMostRecent();
+		deleteAtHead();
 	}
 	else // traverse and find matching node for deleting
 	{
