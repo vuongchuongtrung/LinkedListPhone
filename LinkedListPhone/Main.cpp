@@ -31,8 +31,11 @@ int main()
 	//l1.insert(99, "Test Phone", position);
 	//cout << l1;
 
-	int id = 66;
-	l1.deletePhone(id);
+	//int id = 66;
+	//l1.deletePhone(id);
+	//cout << l1;
+
+	l1.deleteAtRear();
 	cout << l1;
 
 	system("pause");

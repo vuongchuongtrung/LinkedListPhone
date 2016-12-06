@@ -62,6 +62,30 @@ void List::deleteAtHead()
 	}
 }
 
+void List::deleteAtRear()
+{
+	if (!head) // (head == NULL)
+	{
+		cout << "Cannot delete empty list!\n" << endl;
+	}
+	else
+	{
+		Node *previous = head;
+		Node *current = head;
+		// traverse to the end of the list
+		if (head) // (head != NULL)
+		{
+			while (current->next != NULL) // (current != NULL)
+			{
+				previous = current;
+				current = current->next;
+			}
+			previous->next = NULL;
+			delete current;
+		}
+	}
+}
+
 void List::deletePhone(int id)
 {	
 	if (!head) // (head == NULL)

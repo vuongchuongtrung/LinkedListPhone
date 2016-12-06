@@ -15,6 +15,7 @@ public:
 	
 	List& operator=(const List& l);
 	void deleteAtHead(); // delete at head
+	void deleteAtRear(); // delete at rear
 	void deletePhone(int id);
 	
 	void insertAtHead(int id, string make); // insert at head
