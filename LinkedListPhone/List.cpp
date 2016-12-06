@@ -92,3 +92,33 @@ ostream& operator<<(ostream& os, const List& l)
 	l.display(os);
 	return os;
 }
+
+void List::insert(int id, string make, int position)
+{
+	Node *newNode = new Node(id, make);
+	if (position <= 0) // insert at head
+	{
+		// could also call insert() to do the job
+		newNode->next = head;
+		head = newNode;
+	}
+	else
+	{
+		Node *current = head;
+		Node *previous = NULL;
+		for (int i = 0; i < position && current != NULL; current = current->next, i++)
+		{
+			previous = current;			
+		}
+
+		if (current == NULL) // end of linked list ==> insert at rear
+		{
+			previous->next = newNode;
+		}
+		else // insert in the middle of linked list
+		{			
+			previous->next = newNode;	
+			newNode->next = current;
+		}
+	}
+}
