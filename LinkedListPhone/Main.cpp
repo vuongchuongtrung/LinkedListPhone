@@ -26,11 +26,14 @@ int main()
 	//cout << l3;
 
 
-	int position = 3;
-	l1.insert(99, "Test Phone", position);
+	// this is working
+	//int position = 3;
+	//l1.insert(99, "Test Phone", position);
+	//cout << l1;
+
+	int id = 66;
+	l1.deletePhone(id);
 	cout << l1;
-
-
 
 	system("pause");
 	return 0;

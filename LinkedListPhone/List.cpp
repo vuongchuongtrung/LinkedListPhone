@@ -62,6 +62,41 @@ void List::deleteMostRecent()
 	}
 }
 
+void List::deletePhone(int id)
+{	
+	if (!head) // (head == NULL)
+	{
+		cout << "Cannot delete emply list!\n" << endl;
+	}	
+	else if (head->next == NULL) // only 1 node on the list
+	{
+		Node *temp = head;
+		delete temp;
+		head = NULL;
+	}
+	else if (head->p.id == id) // delete head ==> deleteMostRecent()
+	{
+		deleteMostRecent();
+	}
+	else // traverse and find matching node for deleting
+	{
+		bool isDeleted = false;
+		Node *previous;
+		Node *current = head;
+		while (current && !isDeleted) // (head != NULL) && (isDeleted == true)
+		{			
+			previous = current;
+			current = current->next;
+			if (current->p.id == id) // found matching
+			{
+				previous->next = current->next;
+				delete current;
+				isDeleted = true; // this will terminate the loop
+			}
+		}
+	}
+}
+
 void List::display(ostream& os) const
 {
 	if (!head) // (head == NULL)
