@@ -32,7 +32,7 @@ List& List::operator=(const List& l)
 		}
 
 		Node *copyPtr = NULL;
-		for (Node *originPtr = head; originPtr != NULL; originPtr = originPtr->next)
+		for (Node *originPtr = l.head; originPtr != NULL; originPtr = originPtr->next)
 		{
 			if (!head) // (head == NULL)
 			{
@@ -92,4 +92,3 @@ ostream& operator<<(ostream& os, const List& l)
 	l.display(os);
 	return os;
 }
-
