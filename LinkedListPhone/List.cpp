@@ -48,7 +48,7 @@ List& List::operator=(const List& l)
 	return *this;
 }
 
-void List::insert(int id, string make)
+void List::insertAtHead(int id, string make)
 {
 	Node *newNode = new Node(id, make);
 	newNode->next = head;
@@ -98,7 +98,7 @@ void List::insert(int id, string make, int position)
 	Node *newNode = new Node(id, make);
 	if (position <= 0) // insert at head
 	{
-		// could also call insert() to do the job
+		// could also call insertAtHead() to do the job
 		newNode->next = head;
 		head = newNode;
 	}

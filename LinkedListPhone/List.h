@@ -14,10 +14,11 @@ public:
 	~List();
 	
 	List& operator=(const List& l);
-	void insert(int id, string make); // insert at head
 	void deleteMostRecent(); // delete at head
 	
+	void insertAtHead(int id, string make); // insert at head
 	void insert(int id, string make, int position);
+
 private:
 	Node *head;
 	void display(ostream& os) const;
